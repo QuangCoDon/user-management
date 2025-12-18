@@ -1,3 +1,4 @@
+require("dotenv").config({ quiet: true });
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -7,7 +8,7 @@ app.use(express.json());
 
 mongoose
   .connect(
-    "mongodb+srv://20225222:20225222@it4409.6gg5vgv.mongodb.net/it4409?appName=it4409"
+    process.env.MONGO_URI
   )
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB Error:", err));
@@ -174,7 +175,7 @@ app.delete("/api/users/:id", async (req, res) => {
   }
 });
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
