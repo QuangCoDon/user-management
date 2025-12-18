@@ -97,7 +97,7 @@
         };
         const fetchUsers = () => {
           setLoading(true);
-          const url = `http://localhost:3001/api/users?page=${page}&limit=${limit}&search=${search}`;
+          const url = `https://user-management-xjoq.onrender.com/api/users?page=${page}&limit=${limit}&search=${search}`;
           
           fetch(url)
             .then(async (res) => {
@@ -121,7 +121,7 @@
         };
 
         const deleteUser = (id) => {
-          fetch(`http://localhost:3001/api/users/${id}`, { method: "DELETE" })
+          fetch(`https://user-management-xjoq.onrender.com/api/users/${id}`, { method: "DELETE" })
             .then(async (res) => {
               const data = await res.json();
               if (!res.ok) {
@@ -331,8 +331,8 @@
           };
 
           const url = user
-            ? `http://localhost:3001/api/users/${user._id}`
-            : `http://localhost:3001/api/users`;
+            ? `https://user-management-xjoq.onrender.com//api/users/${user._id}`
+            : `https://user-management-xjoq.onrender.com//api/users`;
           const method = user ? "PUT" : "POST";
           
           fetch(url, {
